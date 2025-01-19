@@ -1,0 +1,82 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ring-gradient: conic-gradient(red, orange);
+  --ring-animation: spin 20s linear infinite;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+@media (max-width: 50em), (max-height: 50em) {
+  /*  800px */
+  html {
+    font-size: 50%;
+  }
+}
+@media (max-width: 39.375em), (max-height: 39.375em) {
+  /* 	630px */
+  html {
+    font-size: 40%;
+  }
+}
+@media (max-width: 31.25em), (max-height: 31.25em) {
+  /* 	500px */
+  html {
+    font-size: 30%;
+  }
+}
+@media (max-width: 23.75em), (max-height: 23.75em) {
+  /*  380px */
+  html {
+    font-size: 10%;
+  }
+}
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-image: linear-gradient(to right bottom, #555, #111);
+  position: relative;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.table {
+  --table-col: #ddd;
+  background-color: var(--table-col);
+  width: 74rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  box-shadow: 0 2rem 8rem rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.ring {
+  background-image: var(--ring-gradient);
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - (var(--size) / 2));
+  left: calc(50% - (var(--size) / 2));
+  width: var(--size);
+  animation: var(--ring-animation);
+}
+
+.center {
+  background-image: linear-gradient(var(--table-col), var(--table-col));
+  --size: 5rem;
+}
