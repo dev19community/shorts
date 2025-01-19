@@ -1,0 +1,196 @@
+* {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --hue: 223;
+  --sat: 10%;
+  --bg: hsl(var(--hue),var(--sat),90%);
+  --fg: hsl(var(--hue),var(--sat),10%);
+  --hue-success: 126;
+  --success1: hsl(var(--hue-success),90%,40%);
+  --success2: hsl(var(--hue-success),90%,24%);
+  --periwinkle: hsl(240,90%,70%);
+  --light-blue: hsl(210,90%,70%);
+  --orange: hsl(15,90%,70%);
+  --magenta: hsl(300,90%,70%);
+  --light-green: hsl(105,40%,70%);
+  --light-teal: hsl(150,40%,70%);
+  --purple: hsl(270,90%,70%);
+  --trans-dur: 0.3s;
+  font-size: clamp(1rem,0.95rem + 0.25vw,1.25rem);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  display: flex;
+  font: 1em/1.5 sans-serif;
+  height: 100vh;
+  transition: background-color var(--trans-dur), color var(--trans-dur);
+}
+
+.spinner {
+  color: var(--success2);
+  overflow: visible;
+  margin: auto;
+  width: 8em;
+  height: auto;
+  transition: color var(--trans-dur);
+}
+.spinner circle,
+.spinner g,
+.spinner path {
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+.spinner__check, .spinner__pop-start, .spinner__worm {
+  transform-origin: 24px 24px;
+}
+.spinner__check {
+  animation-name: check;
+}
+.spinner__pop-dot {
+  animation-name: pop-dot;
+}
+.spinner__pop-dot-group {
+  animation-name: pop-dot-group1;
+}
+.spinner__pop-dot-group + .spinner__pop-dot-group {
+  animation-name: pop-dot-group2;
+}
+.spinner__pop-end {
+  animation-name: pop-end;
+}
+.spinner__pop-start {
+  animation-name: pop-start;
+}
+.spinner__worm {
+  animation-name: worm;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: hsl(var(--hue),90%,10%);
+    --fg: hsl(var(--hue),90%,90%);
+  }
+
+  .spinner {
+    color: var(--success1);
+  }
+}
+/* Animations */
+@keyframes check {
+  from, 64% {
+    stroke-dashoffset: -36.7;
+    transform: scale(1);
+  }
+  75%, 77% {
+    animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+    stroke-dashoffset: 13.7;
+    transform: scale(1);
+  }
+  79% {
+    animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+    stroke-dashoffset: 13.7;
+    transform: scale(0.4);
+  }
+  87% {
+    animation-timing-function: cubic-bezier(0.32, 0, 0.67, 0);
+    stroke-dashoffset: 13.7;
+    transform: scale(1.4);
+  }
+  93%, to {
+    stroke-dashoffset: 13.7;
+    transform: scale(1);
+  }
+}
+@keyframes pop-dot {
+  from, 80% {
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+    transform: translate(0, 6px);
+  }
+  90%, to {
+    transform: translate(0, 0);
+  }
+}
+@keyframes pop-dot-group1 {
+  from, 82.5%, 90%, to {
+    opacity: 0;
+  }
+  85%, 87.5% {
+    opacity: 1;
+  }
+}
+@keyframes pop-dot-group2 {
+  from, 82.5%, to {
+    opacity: 0;
+  }
+  85%, 90% {
+    opacity: 1;
+  }
+}
+@keyframes pop-end {
+  from {
+    animation-timing-function: steps(1, end);
+    opacity: 0;
+    r: 18px;
+    stroke-width: 4px;
+  }
+  82.5% {
+    animation-timing-function: linear;
+    opacity: 1;
+    r: 18px;
+    stroke-width: 4px;
+  }
+  84%, to {
+    opacity: 0;
+    r: 19px;
+    stroke-width: 3px;
+  }
+}
+@keyframes pop-start {
+  from {
+    animation-timing-function: steps(1, end);
+    opacity: 0;
+    transform: scale(0.35);
+  }
+  76% {
+    animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+    opacity: 1;
+    transform: scale(0.35);
+  }
+  82.5% {
+    animation-timing-function: steps(1, start);
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+@keyframes worm {
+  from {
+    stroke-dashoffset: -51.84;
+    transform: rotate(-119deg);
+  }
+  60% {
+    stroke-dashoffset: -51.84;
+    transform: rotate(961deg);
+  }
+  64% {
+    animation-timing-function: cubic-bezier(0.61, 1, 0.88, 1);
+    stroke-dashoffset: -51.84;
+    transform: rotate(1033deg);
+  }
+  72.5%, to {
+    stroke-dashoffset: -138.23;
+    transform: rotate(1033deg);
+  }
+}
