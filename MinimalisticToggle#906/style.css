@@ -1,0 +1,114 @@
+:root {
+	--sz: 10vmin;
+	--c1: #ffffff;
+	--c2: #848484;
+	--c3: #474747;
+	--c4: #323232;
+}	
+
+@property --c2 {
+	syntax: '<color>';
+	inherits: false;
+	initial-value: #848484;
+}
+
+*, *:before {
+	box-sizing: border-box;
+	transition: all 0.5s ease 0s;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--c4);
+}
+
+.toggle  {
+	position: relative;
+	width: calc(var(--sz) * 4);
+	height: calc(var(--sz) * 2);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+input {
+	opacity: 0;
+	visibility: hidden;
+}
+
+label[for=btn] {
+	position: absolute;
+	width: calc(var(--sz) * 4);
+	height: calc(var(--sz) * 2);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+}	
+
+label[for=btn]:before {
+	content: "";
+	position: absolute;
+	width: calc(var(--sz) * 3);
+	height: calc(var(--sz) * 0.25);
+	background: var(--c3);
+	border-radius: var(--sz);
+}	
+
+.thumb {
+	position: absolute;
+	width: calc(calc(var(--sz) * 2) - calc(var(--sz) / 8));
+	height: calc(calc(var(--sz) * 2) - calc(var(--sz) / 8));
+	top: calc(calc( var(--sz) / 10) + calc(var(--sz) / -20));
+	left: calc(calc( var(--sz) / 10) + calc(var(--sz) / -30));
+	border-radius: var(--sz);
+	background: var(--c2);  
+	cursor: pointer;
+	border: calc(var(--sz) / 4) solid var(--c4);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	pointer-events: all;
+	/* initial animation */
+	animation: start-thumb 1.5s ease 0s 1;
+}
+
+.thumb:before {
+	content: "";
+	position: absolute;
+	width: 65%;
+	height: 65%;
+	background: var(--c4);
+	border-radius: var(--sz);
+	/* initial animation */
+	animation: start-thumb-before 1.5s ease 0s 1;
+}
+
+#btn:checked + label .thumb {
+	left: calc(calc(100% - calc(calc(var(--sz) * 2) - calc(var(--sz) / 3))) - calc(calc( var(--sz) / 10) + calc(var(--sz) / 5.75)));
+	--c2: var(--c1);
+}
+
+#btn:checked + label .thumb:before {
+	width: 0%;
+	height: 0%;
+}
+
+
+/* initial animation */
+@keyframes start-thumb {
+	0%, 50% { left: calc(calc(100% - calc(calc(var(--sz) * 2) - calc(var(--sz) / 3))) - calc(calc( var(--sz) / 10) + calc(var(--sz) / 5.75)));  --c2: var(--c1); }
+	100% { left: calc(calc( var(--sz) / 10) + calc(var(--sz) / -30)); }
+}
+@keyframes start-thumb-before {
+	0%, 50% { width: 0%; height: 0%; }
+	100% { width: 65%; height: 65%; }
+}
