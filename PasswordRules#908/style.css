@@ -1,0 +1,144 @@
+.password-rules__meter {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  max-inline-size: 10rem;
+}
+
+.password-rules__meter > :where(span) {
+  width: 100%;
+  height: 0.25em;
+  background-color: lightgray;
+  border-radius: 360px;
+  transition: background-color 100ms ease-out;
+}
+
+password-rules[data-score="1"] .password-rules__meter :first-child,
+password-rules[data-score="2"] .password-rules__meter :nth-child(-n + 2),
+password-rules[data-score="3"] .password-rules__meter :nth-child(-n + 3),
+password-rules[data-score="4"] .password-rules__meter :nth-child(-n + 4) {
+  background-color: dodgerblue;
+}
+
+password-rules[data-score="5"] .password-rules__meter :nth-child(-n + 5) {
+  background-color: mediumseagreen;
+}
+
+.password-rules__score::before {
+  display: block;
+  counter-reset: score var(--score, 0) total var(--total, 5);
+  content: counter(score) "/" counter(total);
+  font-feature-settings: "tnum";
+  font-size: 0.8em;
+}
+
+.password-rules__checklist {
+  --flow: 0.3rem;
+  -webkit-padding-start: 1.2em;
+          padding-inline-start: 1.2em;
+}
+
+.password-rules__checklist li {
+  position: relative;
+  list-style-type: circle;
+}
+
+.password-rules__checklist .is-match::before {
+  content: "✅";
+  position: absolute;
+  top: 0;
+  right: calc(100% + 0.25em);
+  font-size: 0.9em;
+}
+
+.password-input-wrapper {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+}
+
+.password-input-wrapper button {
+  display: grid;
+  place-items: center;
+}
+
+.password-input-wrapper button svg:last-of-type {
+  display: none;
+}
+
+.password-input-wrapper button[aria-pressed="true"] {
+  svg:first-of-type {
+    display: none;
+  }
+  svg:last-of-type {
+    display: block;
+  }
+}
+
+/* Base elements */
+body {
+  font-family: system-ui, sans-serif;
+  color: CanvasText;
+  background: Canvas;
+}
+
+form {
+  width: min(30rem, 100% - 1rem);
+  margin-inline: auto;
+  margin-block: 4rem;
+}
+
+input {
+  box-sizing: border-box;
+  padding-inline: 0.5rem;
+  width: 100%;
+  border: 1px solid lightgray;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 6px -4px rgba(0 0 0 / 0.2);
+}
+
+button {
+  all: unset;
+  outline: revert;
+  padding-inline: 1rem;
+  background: linear-gradient(white, whitesmoke);
+
+  &:active {
+    translate: 0 1px;
+    box-shadow: none;
+  }
+}
+
+:is(input, button) {
+  font: inherit;
+  padding-block: 0.5rem;
+  border: 1px solid lightgray;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 6px -4px rgba(0 0 0 / 0.2);
+}
+
+/* Utils */
+.flow > * + * {
+  -webkit-margin-before: var(--flow, 1rem);
+          margin-block-start: var(--flow, 1rem);
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.input-wrapper {
+  display: grid;
+  gap: 0.4rem;
+
+  label {
+    justify-self: start;
+  }
+}
