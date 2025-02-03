@@ -1,0 +1,28 @@
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #111;
+	filter: saturate(1);
+	position: relative;
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		box-shadow: inset 0 0 5rem 2rem #000000;
+		pointer-events: none;
+		z-index: 2;
+		backdrop-filter: hue-rotate(0deg);
+		animation: 7s infinite alternate hueRotate;
+	}
+}
+@keyframes hueRotate {
+	100% {
+		backdrop-filter: hue-rotate(360deg);
+	}
+}
