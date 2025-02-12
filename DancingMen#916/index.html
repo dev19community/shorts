@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Is this dance?</title>
+  <link rel='stylesheet' href='https://unpkg.com/splitting/dist/splitting.css'>
+<link rel='stylesheet' href='https://unpkg.com/splitting/dist/splitting-cells.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="podium" style="--dancers-count: 10;">
+  <svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+    <g class="upper-body" transform-origin="100px 150px" style="animation-delay: 0s;">
+      <circle class="head" cx="100" cy="65" r="15"></circle>
+      <line class="body" x1="100" y1="70" x2="100" y2="150"></line>
+      <g class="left-arm arm" transform-origin="100px 90px" style="animation-delay: 0s;">
+        <line class="left-upper-arm" x1="100" y1="90" x2="60" y2="120"></line>
+        <line class="left-lower-arm" x1="60" y1="120" x2="40" y2="170"></line>
+        <!-- check out what happens when you remove x2 and y2 above-->
+      </g>
+      <g class="right-arm arm" transform-origin="100px 90px" style="animation-delay: 0s;">
+        <line class="right-upper-arm" x1="100" y1="90" x2="140" y2="120"></line>
+        <line class="right-lower-arm" x1="140" y1="120" x2="160" y2="170"></line>
+      </g>
+    </g>
+    <g class="left-leg leg" transform-origin="75px 210px">
+      <line class="left-upper-leg" x1="100" y1="150" x2="80" y2="210"></line>
+      <line class="left-lower-leg lower-leg" x1="80" y1="210" x2="75" y2="270"></line>
+      <line class="left-foot" x1="75" y1="270" x2="55" y2="270"></line>
+    </g>
+    <g class="right-leg leg" transform-origin="125px 210px">
+      <line class="right-upper-leg" x1="100" y1="150" x2="120" y2="210"></line>
+      <line class="right-lower-leg lower-leg" x1="120" y1="210" x2="125" y2="270"></line>
+      <line class="right-foot" x1="125" y1="270" x2="145" y2="270"></line>
+    </g>
+  </svg>
+  <svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+    <g class="upper-body" transform-origin="100px 150px" style="animation-delay: 0.1s;">
+      <circle class="head" cx="100" cy="65" r="15"></circle>
+      <line class="body" x1="100" y1="70" x2="100" y2="150"></line>
+      <g class="left-arm arm" transform-origin="100px 90px" style="animation-delay: 0.1s;">
+        <line class="left-upper-arm" x1="100" y1="90" x2="60" y2="120"></line>
+        <line class="left-lower-arm" x1="60" y1="120" x2="40" y2="170"></line>
+        <!-- check out what happens when you remove x2 and y2 above-->
+      </g>
+      <g class="right-arm arm" transform-origin="100px 90px" style="animation-delay: 0.1s;">
+        <line class="right-upper-arm" x1="100" y1="90" x2="140" y2="120"></line>
+        <line class="right-lower-arm" x1="140" y1="120" x2="160" y2="170"></line>
+      </g>
+    </g>
+    <g class="left-leg leg" transform-origin="75px 210px">
+      <line class="left-upper-leg" x1="100" y1="150" x2="80" y2="210"></line>
+      <line class="left-lower-leg lower-leg" x1="80" y1="210" x2="75" y2="270"></line>
+      <line class="left-foot" x1="75" y1="270" x2="55" y2="270"></line>
+    </g>
+    <g class="right-leg leg" transform-origin="125px 210px">
+      <line class="right-upper-leg" x1="100" y1="150" x2="120" y2="210"></line>
+      <line class="right-lower-leg lower-leg" x1="120" y1="210" x2="125" y2="270"></line>
+      <line class="right-foot" x1="125" y1="270" x2="145" y2="270"></line>
+    </g>
+  </svg>
+  <svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+    <g class="upper-body" transform-origin="100px 150px" style="animation-delay: 0.2s;">
+      <circle class="head" cx="100" cy="65" r="15"></circle>
+      <line class="body" x1="100" y1="70" x2="100" y2="150"></line>
+      <g class="left-arm arm" transform-origin="100px 90px" style="animation-delay: 0.2s;">
+        <line class="left-upper-arm" x1="100" y1="90" x2="60" y2="120"></line>
+        <line class="left-lower-arm" x1="60" y1="120" x2="40" y2="170"></line>
+        <!-- check out what happens when you remove x2 and y2 above-->
+      </g>
+      <g class="right-arm arm" transform-origin="100px 90px" style="animation-delay: 0.2s;">
+        <line class="right-upper-arm" x1="100" y1="90" x2="140" y2="120"></line>
+        <line class="right-lower-arm" x1="140" y1="120" x2="160" y2="170"></line>
+      </g>
+    </g>
+    <g class="left-leg leg" transform-origin="75px 210px">
+      <line class="left-upper-leg" x1="100" y1="150" x2="80" y2="210"></line>
+      <line class="left-lower-leg lower-leg" x1="80" y1="210" x2="75" y2="270"></line>
+      <line class="left-foot" x1="75" y1="270" x2="55" y2="270"></line>
+    </g>
+    <g class="right-leg leg" transform-origin="125px 210px">
+      <line class="right-upper-leg" x1="100" y1="150" x2="120" y2="210"></line>
+      <line class="right-lower-leg lower-leg" x1="120" y1="210" x2="125" y2="270"></line>
+      <line class="right-foot" x1="125" y1="270" x2="145" y2="270"></line>
+    </g>
+  </svg>
+  <svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+    <g class="upper-body" transform-origin="100px 150px" style="animation-delay: 0.30000000000000004s;">
+      <circle class="head" cx="100" cy="65" r="15"></circle>
+      <line class="body" x1="100" y1="70" x2="100" y2="150"></line>
+      <g class="left-arm arm" transform-origin="100px 90px" style="animation-delay: 0.30000000000000004s;">
+        <line class="left-upper-arm" x1="100" y1="90" x2="60" y2="120"></line>
+        <line class="left-lower-arm" x1="60" y1="120" x2="40" y2="170"></line>
+        <!-- check out what happens when you remove x2 and y2 above-->
+      </g>
+      <g class="right-arm arm" transform-origin="100px 90px" style="animation-delay: 0.30000000000000004s;">
+        <line class="right-upper-arm" x1="100" y1="90" x2="140" y2="120"></line>
+        <line class="right-lower-arm" x1="140" y1="120" x2="160" y2="170"></line>
+      </g>
+    </g>
+    <g class="left-leg leg" transform-origin="75px 210px">
+      <line class="left-upper-leg" x1="100" y1="150" x2="80" y2="210"></line>
+      <line class="left-lower-leg lower-leg" x1="80" y1="210" x2="75" y2="270"></line>
+      <line class="left-foot" x1="75" y1="270" x2="55" y2="270"></line>
+    </g>
+    <g class="right-leg leg" transform-origin="125px 210px">
+      <line class="right-upper-leg" x1="100" y1="150" x2="120" y2="210"></line>
+      <line class="right-lower-leg lower-leg" x1="120" y1="210" x2="125" y2="270"></line>
+      <line class="right-foot" x1="125" y1="270" x2="145" y2="270"></line>
+    </g>
+  </svg>
+  <svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+    <g class="upper-body" transform-origin="100px 150px" style="animation-delay: 0.4s;">
+      <circle class="head" cx="100" cy="65" r="15"></circle>
+      <line class="body" x1="100" y1="70" x2="100" y2="150"></line>
+      <g class="left-arm arm" transform-origin="100px 90px" style="animation-delay: 0.4s;">
+        <line class="left-upper-arm" x1="100" y1="90" x2="60" y2="120"></line>
+        <line class="left-lower-arm" x1="60" y1="120" x2="40" y2="170"></line>
+        <!-- check out what happens when you remove x2 and y2 above-->
+      </g>
+      <g class="right-arm arm" transform-origin="100px 90px" style="animation-delay: 0.4s;">
+        <line class="right-upper-arm" x1="100" y1="90" x2="140" y2="120"></line>
+        <line class="right-lower-arm" x1="140" y1="120" x2="160" y2="170"></line>
+      </g>
+    </g>
+    <g class="left-leg leg" transform-origin="75px 210px">
+      <line class="left-upper-leg" x1="100" y1="150" x2="80" y2="210"></line>
+      <line class="left-lower-leg lower-leg" x1="80" y1="210" x2="75" y2="270"></line>
+      <line class="left-foot" x1="75" y1="270" x2="55" y2="270"></line>
+    </g>
+    <g class="right-leg leg" transform-origin="125px 210px">
+      <line class="right-upper-leg" x1="100" y1="150" x2="120" y2="210"></line>
+      <line class="right-lower-leg lower-leg" x1="120" y1="210" x2="125" y2="270"></line>
+      <line class="right-foot" x1="125" y1="270" x2="145" y2="270"></line>
+    </g>
+  </svg>
+  <svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+    <g class="upper-body" transform-origin="100px 150px" style="animation-delay: 0.5s;">
+      <circle class="head" cx="100" cy="65" r="15"></circle>
+      <line class="body" x1="100" y1="70" x2="100" y2="150"></line>
+      <g class="left-arm arm" transform-origin="100px 90px" style="animation-delay: 0.5s;">
+        <line class="left-upper-arm" x1="100" y1="90" x2="60" y2="120"></line>
+        <line class="left-lower-arm" x1="60" y1="120" x2="40" y2="170"></line>
+        <!-- check out what happens when you remove x2 and y2 above-->
+      </g>
+      <g class="right-arm arm" transform-origin="100px 90px" style="animation-delay: 0.5s;">
+        <line class="right-upper-arm" x1="100" y1="90" x2="140" y2="120"></line>
+        <line class="right-lower-arm" x1="140" y1="120" x2="160" y2="170"></line>
+      </g>
+    </g>
+    <g class="left-leg leg" transform-origin="75px 210px">
+      <line class="left-upper-leg" x1="100" y1="150" x2="80" y2="210"></line>
+      <line class="left-lower-leg lower-leg" x1="80" y1="210" x2="75" y2="270"></line>
+      <line class="left-foot" x1="75" y1="270" x2="55" y2="270"></line>
+    </g>
+    <g class="right-leg leg" transform-origin="125px 210px">
+      <line class="right-upper-leg" x1="100" y1="150" x2="120" y2="210"></line>
+      <line class="right-lower-leg lower-leg" x1="120" y1="210" x2="125" y2="270"></line>
+      <line class="right-foot" x1="125" y1="270" x2="145" y2="270"></line>
+    </g>
+  </svg>
+  <svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+    <g class="upper-body" transform-origin="100px 150px" style="animation-delay: 0.6000000000000001s;">
+      <circle class="head" cx="100" cy="65" r="15"></circle>
+      <line class="body" x1="100" y1="70" x2="100" y2="150"></line>
+      <g class="left-arm arm" transform-origin="100px 90px" style="animation-delay: 0.6000000000000001s;">
+        <line class="left-upper-arm" x1="100" y1="90" x2="60" y2="120"></line>
+        <line class="left-lower-arm" x1="60" y1="120" x2="40" y2="170"></line>
+        <!-- check out what happens when you remove x2 and y2 above-->
+      </g>
+      <g class="right-arm arm" transform-origin="100px 90px" style="animation-delay: 0.6000000000000001s;">
+        <line class="right-upper-arm" x1="100" y1="90" x2="140" y2="120"></line>
+        <line class="right-lower-arm" x1="140" y1="120" x2="160" y2="170"></line>
+      </g>
+    </g>
+    <g class="left-leg leg" transform-origin="75px 210px">
+      <line class="left-upper-leg" x1="100" y1="150" x2="80" y2="210"></line>
+      <line class="left-lower-leg lower-leg" x1="80" y1="210" x2="75" y2="270"></line>
+      <line class="left-foot" x1="75" y1="270" x2="55" y2="270"></line>
+    </g>
+    <g class="right-leg leg" transform-origin="125px 210px">
+      <line class="right-upper-leg" x1="100" y1="150" x2="120" y2="210"></line>
+      <line class="right-lower-leg lower-leg" x1="120" y1="210" x2="125" y2="270"></line>
+      <line class="right-foot" x1="125" y1="270" x2="145" y2="270"></line>
+    </g>
+  </svg>
+  <svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+    <g class="upper-body" transform-origin="100px 150px" style="animation-delay: 0.7000000000000001s;">
+      <circle class="head" cx="100" cy="65" r="15"></circle>
+      <line class="body" x1="100" y1="70" x2="100" y2="150"></line>
+      <g class="left-arm arm" transform-origin="100px 90px" style="animation-delay: 0.7000000000000001s;">
+        <line class="left-upper-arm" x1="100" y1="90" x2="60" y2="120"></line>
+        <line class="left-lower-arm" x1="60" y1="120" x2="40" y2="170"></line>
+        <!-- check out what happens when you remove x2 and y2 above-->
+      </g>
+      <g class="right-arm arm" transform-origin="100px 90px" style="animation-delay: 0.7000000000000001s;">
+        <line class="right-upper-arm" x1="100" y1="90" x2="140" y2="120"></line>
+        <line class="right-lower-arm" x1="140" y1="120" x2="160" y2="170"></line>
+      </g>
+    </g>
+    <g class="left-leg leg" transform-origin="75px 210px">
+      <line class="left-upper-leg" x1="100" y1="150" x2="80" y2="210"></line>
+      <line class="left-lower-leg lower-leg" x1="80" y1="210" x2="75" y2="270"></line>
+      <line class="left-foot" x1="75" y1="270" x2="55" y2="270"></line>
+    </g>
+    <g class="right-leg leg" transform-origin="125px 210px">
+      <line class="right-upper-leg" x1="100" y1="150" x2="120" y2="210"></line>
+      <line class="right-lower-leg lower-leg" x1="120" y1="210" x2="125" y2="270"></line>
+      <line class="right-foot" x1="125" y1="270" x2="145" y2="270"></line>
+    </g>
+  </svg>
+  <svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+    <g class="upper-body" transform-origin="100px 150px" style="animation-delay: 0.8s;">
+      <circle class="head" cx="100" cy="65" r="15"></circle>
+      <line class="body" x1="100" y1="70" x2="100" y2="150"></line>
+      <g class="left-arm arm" transform-origin="100px 90px" style="animation-delay: 0.8s;">
+        <line class="left-upper-arm" x1="100" y1="90" x2="60" y2="120"></line>
+        <line class="left-lower-arm" x1="60" y1="120" x2="40" y2="170"></line>
+        <!-- check out what happens when you remove x2 and y2 above-->
+      </g>
+      <g class="right-arm arm" transform-origin="100px 90px" style="animation-delay: 0.8s;">
+        <line class="right-upper-arm" x1="100" y1="90" x2="140" y2="120"></line>
+        <line class="right-lower-arm" x1="140" y1="120" x2="160" y2="170"></line>
+      </g>
+    </g>
+    <g class="left-leg leg" transform-origin="75px 210px">
+      <line class="left-upper-leg" x1="100" y1="150" x2="80" y2="210"></line>
+      <line class="left-lower-leg lower-leg" x1="80" y1="210" x2="75" y2="270"></line>
+      <line class="left-foot" x1="75" y1="270" x2="55" y2="270"></line>
+    </g>
+    <g class="right-leg leg" transform-origin="125px 210px">
+      <line class="right-upper-leg" x1="100" y1="150" x2="120" y2="210"></line>
+      <line class="right-lower-leg lower-leg" x1="120" y1="210" x2="125" y2="270"></line>
+      <line class="right-foot" x1="125" y1="270" x2="145" y2="270"></line>
+    </g>
+  </svg>
+  <svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+    <g class="upper-body" transform-origin="100px 150px" style="animation-delay: 0.9s;">
+      <circle class="head" cx="100" cy="65" r="15"></circle>
+      <line class="body" x1="100" y1="70" x2="100" y2="150"></line>
+      <g class="left-arm arm" transform-origin="100px 90px" style="animation-delay: 0.9s;">
+        <line class="left-upper-arm" x1="100" y1="90" x2="60" y2="120"></line>
+        <line class="left-lower-arm" x1="60" y1="120" x2="40" y2="170"></line>
+        <!-- check out what happens when you remove x2 and y2 above-->
+      </g>
+      <g class="right-arm arm" transform-origin="100px 90px" style="animation-delay: 0.9s;">
+        <line class="right-upper-arm" x1="100" y1="90" x2="140" y2="120"></line>
+        <line class="right-lower-arm" x1="140" y1="120" x2="160" y2="170"></line>
+      </g>
+    </g>
+    <g class="left-leg leg" transform-origin="75px 210px">
+      <line class="left-upper-leg" x1="100" y1="150" x2="80" y2="210"></line>
+      <line class="left-lower-leg lower-leg" x1="80" y1="210" x2="75" y2="270"></line>
+      <line class="left-foot" x1="75" y1="270" x2="55" y2="270"></line>
+    </g>
+    <g class="right-leg leg" transform-origin="125px 210px">
+      <line class="right-upper-leg" x1="100" y1="150" x2="120" y2="210"></line>
+      <line class="right-lower-leg lower-leg" x1="120" y1="210" x2="125" y2="270"></line>
+      <line class="right-foot" x1="125" y1="270" x2="145" y2="270"></line>
+    </g>
+  </svg>
+</div>
+<!-- partial -->
+  <script src='https://unpkg.com/splitting/dist/splitting.min.js'></script>
+</body>
+</html>

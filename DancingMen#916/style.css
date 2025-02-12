@@ -1,0 +1,62 @@
+:root {
+	--easing: ease-in;
+	--bar-duration: 1s;
+	--line-width: 10px;
+}
+
+body {
+	height: 100vh;
+	font-family: sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+.podium {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+line {
+	stroke-width: var(--line-width);
+	stroke: black;
+	stroke-linecap: round;
+}
+
+.upper-body {
+	animation: twist var(--bar-duration) var(--easing) infinite;
+}
+
+.leg {
+	animation: bend var(--bar-duration) var(--easing) infinite;
+}
+
+.arm {
+	animation: twist var(--bar-duration) var(--easing) alternate infinite;
+}
+
+.head {
+	animation: bend var(--bar-duration) var(--easing) infinite;
+}
+
+@keyframes twist {
+	33% {
+		transform: rotate(30deg);
+	}
+	66% {
+		transform: rotate(-30deg);
+	}
+}
+
+@keyframes bend {
+	40% {
+		transform: rotate(5deg);
+	}
+	60% {
+		transform: rotate(-5deg);
+	}
+}
