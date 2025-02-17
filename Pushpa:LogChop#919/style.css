@@ -1,0 +1,112 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #009999;
+}
+
+svg {
+  height: auto;
+}
+
+@keyframes fiskar {
+  0% {
+    transform: matrix(0.38, 0.93, -0.93, 0.38, 133.3, 126.2);
+    animation-timing-function: ease-out;
+  }
+  10.47% {
+    transform: matrix(0.24, 0.97, -0.97, 0.24, 144.6, 119.8);
+    animation-timing-function: ease-out;
+  }
+  19.77% {
+    transform: matrix(0.6, 0.8, -0.8, 0.6, 117.1, 139.8);
+    animation-timing-function: linear;
+  }
+  20.93% {
+    transform: matrix(0.38, 0.93, -0.93, 0.38, 133.3, 126.2);
+    animation-timing-function: ease-out;
+  }
+  31.4% {
+    transform: matrix(0.24, 0.97, -0.97, 0.24, 144.6, 119.8);
+    animation-timing-function: ease-out;
+  }
+  40.7% {
+    transform: matrix(0.7, 0.72, -0.72, 0.7, 109.65, 150.3);
+    animation-timing-function: linear;
+  }
+  44.19% {
+    transform: matrix(0.7, 0.72, -0.72, 0.7, 109.65, 150.3);
+    animation-timing-function: ease-in-out;
+  }
+  79.07% {
+    transform: matrix(0.21, -0.98, 0.98, 0.21, 104.9, 97.15);
+    animation-timing-function: ease-in;
+  }
+  82.56% {
+    transform: matrix(0.42, -0.91, 0.91, 0.42, 119.6, 118.1);
+    animation-timing-function: linear;
+  }
+  88.37% {
+    transform: matrix(0.38, 0.93, -0.93, 0.38, 133.3, 126.2);
+    animation-timing-function: ease-out;
+  }
+  94.19% {
+    transform: matrix(0.43, 0.9, -0.9, 0.43, 128.4, 129.55);
+    animation-timing-function: ease-in-out;
+  }
+  100% {
+    transform: matrix(0.38, 0.93, -0.93, 0.38, 133.3, 126.2);
+    animation-timing-function: linear;
+  }
+}
+@keyframes logFront {
+  0% {
+    transform: matrix(1, 0, 0, 1, 187.5, 200.65);
+    animation-timing-function: linear;
+  }
+  88.37% {
+    transform: matrix(1, 0, 0, 1, 187.5, 200.65);
+    animation-timing-function: ease-out;
+  }
+  94.19% {
+    transform: matrix(1, 0.09, -0.09, 1, 187.5, 203.25);
+    animation-timing-function: ease-in-out;
+  }
+  100% {
+    transform: matrix(1, 0, 0, 1, 187.5, 200.65);
+    animation-timing-function: linear;
+  }
+}
+@keyframes logBack {
+  0% {
+    transform: matrix(1, 0, 0, 1, 168.75, 193.25);
+    animation-timing-function: linear;
+  }
+  88.37% {
+    transform: matrix(1, 0, 0, 1, 168.4, 193.9);
+    animation-timing-function: ease-out;
+  }
+  94.19% {
+    transform: matrix(1, -0.08, 0.08, 1, 167.6, 198.05);
+    animation-timing-function: ease-in-out;
+  }
+  100% {
+    transform: matrix(1, 0, 0, 1, 168.4, 193.9);
+    animation-timing-function: linear;
+  }
+}
+#logFront {
+  animation: logFront 2.46s infinite;
+  animation-delay: 0s;
+}
+
+#logBack {
+  animation: logBack 2.46s infinite;
+  animation-delay: 0s;
+}
+
+#fiskar {
+  animation: fiskar 2.46s infinite;
+  animation-delay: 0s;
+}
