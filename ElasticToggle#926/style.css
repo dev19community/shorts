@@ -1,0 +1,125 @@
+:root {
+	--sz: 10vmin;
+	--sp: 1s;
+	--tr: all 0.5s ease 0s;
+}	
+
+* {
+	box-sizing: border-box;
+	transition: var(--tr);
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #f6f6f6;
+}
+
+.toggle  {
+	position: relative;
+	width: calc(var(--sz) * 4);
+	height: calc(var(--sz) * 2);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+input {
+	display: none;
+}
+
+label[for=btn] {
+	position: absolute;
+	width: calc(var(--sz) * 4);
+	height: calc(var(--sz) * 2);
+	background: #fff;
+	border-radius: var(--sz);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 0 calc(var(--sz) * 0.5) 0 #0004;
+	pointer-events: none;
+}	
+
+.thumb {
+	position: absolute;
+	height: calc(calc(var(--sz) * 2) - calc(var(--sz) / 8));
+	top: calc(calc( var(--sz) / 10) + calc(var(--sz) / -25));
+	background: #111;
+	border-radius: var(--sz);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	z-index: 1;
+	overflow: hidden;
+	padding: calc(var(--sz)* 0.65);
+	animation: go-left var(--sp) ease 0s;
+	width: calc(var(--sz)* 1.875);
+	right: calc(var(--sz)* 2.05);
+	pointer-events: all;
+}
+
+#btn:checked + label .thumb {
+	animation: go-right var(--sp) ease 0s;
+	width: calc(var(--sz)* 1.875);
+	right: calc(var(--sz)* 0.075);
+	justify-content: flex-end;
+}
+
+@keyframes go-left {
+	0%   { 
+		width: calc(var(--sz)* 1.875);
+		right: calc(var(--sz)* 0.075);
+	}
+	40%, 60%  { 
+		width: calc(var(--sz)* 3.85);
+		right: calc(var(--sz)* 0.075);
+	}
+	100% { 
+		width: calc(var(--sz)* 1.875);
+		right: calc(var(--sz)* 2.05);
+	}
+}
+
+@keyframes go-right {
+	0%   { 
+		width: calc(var(--sz)* 1.875);
+		right: calc(var(--sz)* 2.05);
+	}
+	40%, 60%  { 
+		width: calc(var(--sz)* 3.85);
+		right: calc(var(--sz)* 0.075);
+	}
+	100% { 
+		width: calc(var(--sz)* 1.875);
+		right: calc(var(--sz)* 0.075);
+	}
+}
+
+
+label[for=btn]:before,
+label[for=btn]:after {
+	content: "";
+	position: absolute;
+	border-radius: 100%;
+	width: calc(var(--sz)* 0.5);
+	height: calc(var(--sz)* 0.5);
+	background-color: #fff;
+	left: calc(var(--sz)* 0.75);
+	z-index: 3;
+	mix-blend-mode: difference;
+}
+
+label[for=btn]:after {
+	border-radius: var(--sz);
+	width: calc(var(--sz)* 0.25);
+	height: calc(var(--sz)* 0.75);
+	left: calc(var(--sz)* 2.85);
+}
