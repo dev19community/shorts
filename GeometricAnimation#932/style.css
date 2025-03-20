@@ -1,0 +1,388 @@
+@property --a {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+@property --l {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+@property --x {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0;
+}
+@property --y {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0;
+}
+@property --o {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+body {
+  color: white;
+  position: relative;
+  transform: scale(1.2);
+  overflow: hidden;
+}
+body:before {
+  content: "";
+  display: grid;
+  place-items: center;
+  opacity: 0.9;
+  font-size: 2rem;
+  z-index: -1;
+  background: conic-gradient(from 180deg, #111, black, #222, black, #111);
+  inset: 0;
+  position: absolute;
+  pointer-events: none;
+}
+body:after {
+  pointer-events: none;
+  content: "";
+  background: url(https://assets.codepen.io/907471/noise.svg) center center;
+  inset: 0;
+  filter: brightness(1.2) saturate(3);
+  opacity: 0.1;
+  mix-blend-mode: overlay;
+  position: absolute;
+}
+
+.ai {
+  --items: 6;
+  rotate: 0deg;
+  position: absolute;
+  --s: 40vmin;
+  --p: calc(var(--s) / 4);
+  width: var(--s);
+  aspect-ratio: 1;
+  padding: var(--p);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  transform: scale(1.4);
+}
+.ai:nth-child(1):not(:last-of-type) {
+  --i: 0;
+  --scale-per-item: calc(0.55 / (var(--items) - 1));
+  scale: calc(1.2 - var(--scale-per-item) * var(--i));
+  --rotation-per-item: calc(45deg / (var(--items) - 1));
+  rotate: calc(var(--rotation-per-item) * var(--i));
+}
+.ai:nth-child(2):not(:last-of-type) {
+  --i: 1;
+  --scale-per-item: calc(0.55 / (var(--items) - 1));
+  scale: calc(1.2 - var(--scale-per-item) * var(--i));
+  --rotation-per-item: calc(45deg / (var(--items) - 1));
+  rotate: calc(var(--rotation-per-item) * var(--i));
+}
+.ai:nth-child(3):not(:last-of-type) {
+  --i: 2;
+  --scale-per-item: calc(0.55 / (var(--items) - 1));
+  scale: calc(1.2 - var(--scale-per-item) * var(--i));
+  --rotation-per-item: calc(45deg / (var(--items) - 1));
+  rotate: calc(var(--rotation-per-item) * var(--i));
+}
+.ai:nth-child(4):not(:last-of-type) {
+  --i: 3;
+  --scale-per-item: calc(0.55 / (var(--items) - 1));
+  scale: calc(1.2 - var(--scale-per-item) * var(--i));
+  --rotation-per-item: calc(45deg / (var(--items) - 1));
+  rotate: calc(var(--rotation-per-item) * var(--i));
+}
+.ai:nth-child(5):not(:last-of-type) {
+  --i: 4;
+  --scale-per-item: calc(0.55 / (var(--items) - 1));
+  scale: calc(1.2 - var(--scale-per-item) * var(--i));
+  --rotation-per-item: calc(45deg / (var(--items) - 1));
+  rotate: calc(var(--rotation-per-item) * var(--i));
+}
+.ai:nth-child(6):not(:last-of-type) {
+  --i: 5;
+  --scale-per-item: calc(0.55 / (var(--items) - 1));
+  scale: calc(1.2 - var(--scale-per-item) * var(--i));
+  --rotation-per-item: calc(45deg / (var(--items) - 1));
+  rotate: calc(var(--rotation-per-item) * var(--i));
+}
+.ai:nth-child(7):not(:last-of-type) {
+  --i: 6;
+  --scale-per-item: calc(0.55 / (var(--items) - 1));
+  scale: calc(1.2 - var(--scale-per-item) * var(--i));
+  --rotation-per-item: calc(45deg / (var(--items) - 1));
+  rotate: calc(var(--rotation-per-item) * var(--i));
+}
+.ai:last-of-type {
+  scale: 0.3;
+  rotate: 45deg;
+}
+
+:root {
+  --count: 4;
+  --radius: 6vmin;
+}
+
+@-webkit-keyframes ai {
+  from {
+    --a: 360deg;
+    --l: 0.35;
+    --o: 1;
+  }
+  30% {
+    --l: 1.5;
+  }
+  70% {
+    --o: 0.4;
+    --l: 0.05;
+  }
+  98% {
+    --o: 0.7;
+  }
+  to {
+    --a: 0deg;
+    --l: 0.35;
+    --o: 1;
+  }
+}
+
+@keyframes ai {
+  from {
+    --a: 360deg;
+    --l: 0.35;
+    --o: 1;
+  }
+  30% {
+    --l: 1.5;
+  }
+  70% {
+    --o: 0.4;
+    --l: 0.05;
+  }
+  98% {
+    --o: 0.7;
+  }
+  to {
+    --a: 0deg;
+    --l: 0.35;
+    --o: 1;
+  }
+}
+.c {
+  opacity: 0.9;
+  position: absolute;
+  width: 10vmin;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  --offset-per-item: calc(360deg / var(--count));
+  --current-angle-offset: calc(var(--offset-per-item) * var(--i) + var(--a));
+  translate: calc( cos(var(--current-angle-offset)) * var(--radius) + var(--x, 0) ) calc(sin(var(--current-angle-offset)) * var(--radius) * -1);
+  scale: calc(0.6 + var(--l));
+  -webkit-animation: ai 5.5s cubic-bezier(0.45, -0.35, 0.16, 1.5) infinite;
+          animation: ai 5.5s cubic-bezier(0.45, -0.35, 0.16, 1.5) infinite;
+  transition: opacity 0.3s linear;
+  opacity: var(--o, 1);
+}
+.c:nth-child(1) {
+  --i: 0;
+}
+.c:nth-child(2) {
+  --i: 1;
+}
+.c:nth-child(3) {
+  --i: 2;
+}
+.c:nth-child(4) {
+  --i: 3;
+}
+.c:nth-child(5) {
+  --i: 4;
+}
+
+.c1 {
+  background: #79e3ee;
+  background: radial-gradient(50% 50% at center, #79e3ee, #e7e7fb);
+  background: radial-gradient(50% 50% at center, #c979ee, #74bcd6);
+  --x: 1vmin;
+  width: 16vmin;
+  -webkit-animation-timing-function: cubic-bezier(0.12, 0.32, 0.68, 0.24);
+          animation-timing-function: cubic-bezier(0.12, 0.32, 0.68, 0.24);
+}
+
+.c2 {
+  background: radial-gradient(50% 50% at center, #ef788c, #e7e7fb);
+  width: 15vmin;
+}
+
+.c3 {
+  background: radial-gradient(50% 50% at center, #eb7fc6, transparent);
+  width: 5vmin;
+  opacity: 0.6;
+  --x: -1vmin;
+}
+
+.c4 {
+  background: #6d67c8;
+  -webkit-animation-timing-function: cubic-bezier(0.39, -0.03, 0.75, 0.47);
+          animation-timing-function: cubic-bezier(0.39, -0.03, 0.75, 0.47);
+}
+
+.container {
+  overflow: hidden;
+  background: #b6a9f8;
+  width: 100%;
+  border-radius: 0.5rem;
+  -webkit-clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
+          clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
+  aspect-ratio: 1;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.glass {
+  border-radius: 0.5rem;
+  -webkit-clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
+          clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
+  position: absolute;
+  --w: 0.5vmin;
+  inset: calc(var(--p) - var(--w));
+  -webkit-backdrop-filter: blur(1.3vmin);
+          backdrop-filter: blur(1.3vmin);
+  background: radial-gradient(10vmin at 70% 30%, rgba(255, 255, 255, 0.7), transparent);
+}
+.glass:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  --c: rgba(255, 255, 255, 0.03);
+  --w: 0.0625rem;
+  --g: 0.1875rem;
+  background: repeating-linear-gradient(var(--c), var(--c), var(--w), transparent var(--w), transparent calc(var(--w) + var(--g)));
+  border-radius: inherit;
+  border: 0.8vmin rgba(255, 255, 255, 0.1) solid;
+}
+
+body {
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.5), transparent 50%), #221f28;
+  height: 100dvh;
+  display: grid;
+  place-items: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@property --value {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+@property --width-ratio {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+@property --scale {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+:root {
+  --width: 1vmin;
+  --duration: 8s;
+}
+
+.rings {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: absolute;
+  inset: 0;
+  perspective: 11rem;
+  opacity: 0.9;
+}
+.rings:before, .rings:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: red;
+  border-radius: 50%;
+  --width-ratio: 1;
+  border: calc(var(--width) * var(--width-ratio)) solid transparent;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  background: linear-gradient(white, blue, magenta, violet, lightyellow) border-box;
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  -webkit-animation: ring var(--duration) ease-in-out infinite;
+          animation: ring var(--duration) ease-in-out infinite;
+  --start: 180deg;
+  --value: var(--start);
+  --scale: 1;
+  transform: rotateY(var(--value)) rotateX(var(--value)) rotateZ(var(--value)) scale(var(--scale));
+}
+.rings:before {
+  --start: 180deg;
+}
+.rings:after {
+  --start: 90deg;
+}
+.rings > .rings:before {
+  --start: 360deg;
+}
+.rings > .rings:after {
+  --start: 270deg;
+}
+
+@-webkit-keyframes ring {
+  from {
+    --value: var(--start);
+    --scale: 1;
+  }
+  50% {
+    --scale: 1.2;
+    --width-ratio: 1.5;
+  }
+  70% {
+    --scale: 1;
+    --value: calc(var(--start) + 180deg);
+    --width-ratio: 1;
+  }
+  80% {
+    --scale: 1.2;
+    --width-ratio: 1.5;
+  }
+  to {
+    --value: calc(var(--start) + 360deg);
+    --scale: 1;
+    --width-ratio: 1;
+  }
+}
+
+@keyframes ring {
+  from {
+    --value: var(--start);
+    --scale: 1;
+  }
+  50% {
+    --scale: 1.2;
+    --width-ratio: 1.5;
+  }
+  70% {
+    --scale: 1;
+    --value: calc(var(--start) + 180deg);
+    --width-ratio: 1;
+  }
+  80% {
+    --scale: 1.2;
+    --width-ratio: 1.5;
+  }
+  to {
+    --value: calc(var(--start) + 360deg);
+    --scale: 1;
+    --width-ratio: 1;
+  }
+}
