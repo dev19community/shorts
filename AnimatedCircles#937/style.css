@@ -1,0 +1,88 @@
+body {
+      background-color: #fdf7ec;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      width: 400px;
+      height: 400px;
+    }
+
+    .circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      box-shadow: inset 0 8px 12px rgba(0, 0, 0, 0.4);
+      animation-name: pulse;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+
+    .circle1 {
+      width: 75px;
+      height: 75px;
+      background-color: #1b0026;
+      z-index: 5;
+      animation-duration: 3.7s;
+      background: radial-gradient(circle at 30% 30%, #360048, #1b0026);
+      animation-delay: 0s;
+      box-shadow:
+        inset 0 8px 12px rgba(0, 0, 0, 0.4),
+        0 6px 10px rgba(0, 0, 0, 0.25); /* dış derinlik */
+      position: relative;
+    }
+
+    .circle2 {
+      width: 120px;
+      height: 120px;
+      background-color: #c23636;
+      z-index: 4;
+      animation-duration: 4.5s;
+      animation-delay: 0.3s;
+    }
+
+    .circle3 {
+      width: 200px;
+      height: 200px;
+      background-color: #f76b1c;
+      z-index: 3;
+      animation-duration: 5.1s;
+      animation-delay: 2.1s;
+    }
+
+    .circle4 {
+      width: 250px;
+      height: 250px;
+      background-color: #fcbc3e;
+      z-index: 2;
+      animation-duration: 3.3s;
+      animation-delay: 1.6s;
+    }
+
+    .circle5 {
+      width: 320px;
+      height: 320px;
+      background-color: #fff53c;
+      z-index: 1;
+      animation-duration: 4.8s;
+      animation-delay: 0.7s;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.10);
+        opacity: 0.95;
+      }
+    }
